@@ -35,6 +35,7 @@
     <OutputPath>bin\</OutputPath>
     <DocumentationFile>WebForms_Basic.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <FilesToIncludeForPublish>AllFilesInProjectFolder</FilesToIncludeForPublish>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -153,11 +154,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="App_Data\MITRADB.mdf" />
+    <Content Include="App_Data\MITRADB_log.ldf">
+      <DependentUpon>MITRADB.mdf</DependentUpon>
+    </Content>
     <Content Include="Contact.aspx" />
+    <Content Include="Content\bootstrap-united.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="404.aspx" />
+    <Content Include="DetailedSummary.aspx" />
+    <Content Include="ErrorPage.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -167,7 +176,23 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Resource Include="images\Oops.jpg" />
+    <Content Include="AccountSummary.aspx" />
+    <Content Include="MitraDb.xsc">
+      <DependentUpon>MitraDb.xsd</DependentUpon>
+    </Content>
+    <None Include="MitraDb.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>MitraDb.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="MitraDb.xss">
+      <DependentUpon>MitraDb.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="NewAccountRegistration.aspx" />
+    <Content Include="PerfromTransaction.aspx" />
+    <Content Include="Registration.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -196,6 +221,20 @@
     <Content Include="Scripts\WebForms\WebForms.js" />
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="SecurityQuestionPage.aspx" />
+    <Content Include="SQLScripts\Create_AccountDetails.sql" />
+    <Content Include="SQLScripts\create_AccountTransactions.sql" />
+    <Content Include="SQLScripts\Create_CustomerDetails.sql" />
+    <Content Include="SQLScripts\DatabaseCreation.sql" />
+    <Content Include="SQLScripts\SampleInputs.txt" />
+    <Content Include="SQLScripts\spaccountdetail.sql" />
+    <Content Include="SQLScripts\spcustomerdetails.sql" />
+    <Content Include="SQLScripts\spLogin.sql" />
+    <Content Include="SQLScripts\spSecurity.sql" />
+    <Content Include="SQLScripts\spSecurityold.sql" />
+    <Content Include="SQLScripts\testingLogin.sql" />
+    <Content Include="testgrid.aspx" />
+    <Content Include="TransactionWindow.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
   </ItemGroup>
@@ -216,6 +255,8 @@
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="DataAccess\DbHandler.vb" />
+    <Compile Include="DataAccess\SqlConnectionClass.vb" />
     <Compile Include="Default.aspx.vb">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -223,9 +264,47 @@
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="404.aspx.designer.vb">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="404.aspx.vb">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="DetailedSummary.aspx.designer.vb">
+      <DependentUpon>DetailedSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetailedSummary.aspx.vb">
+      <DependentUpon>DetailedSummary.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.vb">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.vb">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Global.asax.vb">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="AccountSummary.aspx.designer.vb">
+      <DependentUpon>AccountSummary.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AccountSummary.aspx.vb">
+      <DependentUpon>AccountSummary.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="MitraDb.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MitraDb.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Account.vb" />
+    <Compile Include="Model\AccountList.vb" />
+    <Compile Include="Model\Customer.vb" />
+    <Compile Include="Model\Login.vb" />
+    <Compile Include="Model\Transaction.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -245,12 +324,54 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="NewAccountRegistration.aspx.designer.vb">
+      <DependentUpon>NewAccountRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewAccountRegistration.aspx.vb">
+      <DependentUpon>NewAccountRegistration.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="PerfromTransaction.aspx.designer.vb">
+      <DependentUpon>PerfromTransaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfromTransaction.aspx.vb">
+      <DependentUpon>PerfromTransaction.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Registration.aspx.designer.vb">
+      <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Registration.aspx.vb">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="SecurityQuestionPage.aspx.designer.vb">
+      <DependentUpon>SecurityQuestionPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SecurityQuestionPage.aspx.vb">
+      <DependentUpon>SecurityQuestionPage.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Site.Master.designer.vb">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.vb">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testgrid.aspx.designer.vb">
+      <DependentUpon>testgrid.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testgrid.aspx.vb">
+      <DependentUpon>testgrid.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="TransactionWindow.aspx.designer.vb">
+      <DependentUpon>TransactionWindow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionWindow.aspx.vb">
+      <DependentUpon>TransactionWindow.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.vb">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -298,7 +419,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="Membership\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

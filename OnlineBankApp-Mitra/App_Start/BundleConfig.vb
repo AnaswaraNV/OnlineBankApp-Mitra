@@ -32,5 +32,10 @@ Public Class BundleConfig
                 .Path = "~/Scripts/respond.min.js",
                 .DebugPath = "~/Scripts/respond.js"})
 
+        'Adding new united style to the bundle 
+        bundles.Add(New StyleBundle("~/Content/css").Include(
+            "~/Content/bootstrap-united.css",
+            "~/Content/Site.css"))
+
     End Sub
 End Class

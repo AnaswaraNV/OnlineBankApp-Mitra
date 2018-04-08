@@ -3,40 +3,64 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <h1>Mitra</h1>
+        <p class="lead">A helping hand to your Online banking needs</p>
         <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
+    <fieldset>
+        <div class="alert alert-dismissible alert-success" style="display:none;">
+            <asp:Button runat="server" ID="successbutton" type="button" class="close" data-dismiss="alert" ></asp:Button>
+            <asp:Label runat="server" ID="successLabel"><strong>Well done!</strong> You have successfully registered!</asp:Label>
+        </div>
+        <div class="form-group">
+            <label for="Username">UserName</label>
+            <asp:TextBox ID="InputUsername" runat="server" type="text" class="form-control" placeholder="Enter Username"></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <label for="InputPassword1">Password</label>
+            <asp:TextBox ID="InputPassword" runat="server" type="password" class="form-control" placeholder="Password"></asp:TextBox>
+        </div>
+        <asp:Button ID="SignInButton" runat="server" Text="Sign In" type="submit" class="btn btn-primary" />
+        <br />
+        <br/>
+        <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
+            <strong> 
+                <asp:Label ID="lblMessage" runat="server" />
+            </strong>
+        </div>
 
+        <span>
+        <p>Not a member ?
+         <asp:HyperLink href="Registration.aspx" runat="server" class="btn btn-link">Sign Up</asp:HyperLink>                   
+        </p>
+            </span>
+        <div>
+           <asp:HyperLink runat="server" NavigateUrl='<%# Bind("Email", "mailto:{0}") %>'
+                              Text='<%# Bind("Email") %>'
+                                ID="hlEmail">
+            </asp:HyperLink>
+        </div>
+    </fieldset>
     <div class="row">
         <div class="col-md-4">
-            <h2>Getting Started</h2>
+            <h2>Apply for home, car, student loans at cheap rates</h2>
             <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
+                We can offer you bank loans at cheap rates. Contact your local branch for more details.
             </p>
             <p>
                 <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Web Hosting</h2>
+            <h2>Get Your taxes Done Easily</h2>
             <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
+                We offer tax helps. Call us for your personalized accountants and financial experts
             </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
+                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
             </p>
         </div>
     </div>
+
 
 </asp:Content>

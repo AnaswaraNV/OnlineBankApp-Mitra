@@ -11,53 +11,35 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class _Default
-
+Partial Public Class SecurityQuestionPage
+    
     '''<summary>
-    '''successbutton control.
+    '''InputQuestion control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents successbutton As Global.System.Web.UI.WebControls.Button
-
+    Protected WithEvents InputQuestion As Global.System.Web.UI.WebControls.TextBox
+    
     '''<summary>
-    '''successLabel control.
+    '''InputAnswer control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents successLabel As Global.System.Web.UI.WebControls.Label
-
+    Protected WithEvents InputAnswer As Global.System.Web.UI.WebControls.TextBox
+    
     '''<summary>
-    '''InputUsername control.
+    '''RequiredFieldValidator1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents InputUsername As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''InputPassword control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents InputPassword As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''SignInButton control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents SignInButton As Global.System.Web.UI.WebControls.Button
-
+    Protected WithEvents RequiredFieldValidator1 As Global.System.Web.UI.WebControls.RequiredFieldValidator
+    
     '''<summary>
     '''dvMessage control.
     '''</summary>
@@ -66,7 +48,7 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents dvMessage As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''lblMessage control.
     '''</summary>
@@ -75,13 +57,22 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblMessage As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
-    '''hlEmail control.
+    '''CancelButton control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents hlEmail As Global.System.Web.UI.WebControls.HyperLink
+    Protected WithEvents CancelButton As Global.System.Web.UI.WebControls.Button
+    
+    '''<summary>
+    '''ContinueButton control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ContinueButton As Global.System.Web.UI.WebControls.Button
 End Class

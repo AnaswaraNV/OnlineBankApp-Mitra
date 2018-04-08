@@ -1,0 +1,22 @@
+﻿Login details:
+1.username: peter
+  pw: peter
+  sa : toronto
+
+  2.username: jessie
+  pw:kitchener
+  sa :jessie
+
+  3.username: mkumar 
+  pw:mkumar
+  sa :chennai
+4.username: charu	
+  pw:charu
+  sa :kolkata
+5.username: rommel	
+  pw: rommel
+  sa : london
+6.username: 
+  pw:
+  sa :
+
