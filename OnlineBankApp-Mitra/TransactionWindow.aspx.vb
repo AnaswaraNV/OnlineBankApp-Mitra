@@ -21,8 +21,12 @@ Public Class TransactionWindow
     End Sub
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
-        Me.InputUsername.Text = _username
+        CreateTransaction()
 
+    End Sub
+
+    Private Sub CreateTransaction()
+        Me.InputUsername.Text = _username
         'create dataaccess obj
         Dim dbHandlerObj As New DbHandler()
         Dim index = TransactionTypeSelection.SelectedIndex
@@ -32,19 +36,36 @@ Public Class TransactionWindow
             dvMessage.Visible = True
             lblMessage.Text = "Please enter all fields"
         Else
-            Dim desc = TransactionTypeSelection.Items(index).Value
+            Dim type As Char
+            If index = 0 Then
+                type = "W"
+            ElseIf index = 1 Then
+                type = "D"
+            End If
             Dim TransaxnDate As Date = DateAndTime.Now
             Dim amount As Double
             Double.TryParse(Me.InputAmount.Text, amount)
+            _balance = readBalance()
             'new transaction values
             Dim transaction As New Transaction(_username, _accountId, DbHandler.GenerateRandomId(),
-                                               amount, desc,
+                                               amount, type,
                                                Me.TransxnDescBox.Text, TransaxnDate)
             Dim isSuccess = dbHandlerObj.Create_Transaxn(transaction, _balance)
             'setting message
             dvMessage.Visible = True
             lblMessage.Text = DbHandler.MessageHandler
+            '$("#getCodeModal").modal('show');
 
+            If isSuccess Then
+
+            End If
         End If
     End Sub
+
+    Private Function readBalance() As Double
+        Dim dbHanlderObj As New DbHandler()
+        Dim dataset As New DataSet()
+        _balance = dbHanlderObj.ReadAccountBalance(_username)
+        Return _balance
+    End Function
 End Class

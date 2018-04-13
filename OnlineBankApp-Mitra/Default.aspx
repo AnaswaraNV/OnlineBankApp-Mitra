@@ -6,6 +6,7 @@
         <h1>Mitra</h1>
         <p class="lead">A helping hand to your Online banking needs</p>
         <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+
     </div>
     <fieldset>
         <div class="alert alert-dismissible alert-success" style="display:none;">
@@ -19,16 +20,15 @@
         <div class="form-group">
             <label for="InputPassword1">Password</label>
             <asp:TextBox ID="InputPassword" runat="server" type="password" class="form-control" placeholder="Password"></asp:TextBox>
+            <br />
+            <asp:Button ID="SignInButton" runat="server" Text="Sign In" 
+                        type="submit" class="btn btn-primary" />
         </div>
-        <asp:Button ID="SignInButton" runat="server" Text="Sign In" type="submit" class="btn btn-primary" />
-        <br />
-        <br/>
-        <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
+         <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
             <strong> 
                 <asp:Label ID="lblMessage" runat="server" />
-            </strong>
-        </div>
-
+            </strong></div> 
+        <br />
         <span>
         <p>Not a member ?
          <asp:HyperLink href="Registration.aspx" runat="server" class="btn btn-link">Sign Up</asp:HyperLink>                   

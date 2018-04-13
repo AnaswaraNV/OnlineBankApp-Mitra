@@ -98,6 +98,7 @@ h1, h2, h3, h4, h5, h6 {
 p {
     margin-top: 0;
     margin-bottom: 1rem;
+    margin-left: 6px;
 }
 
 abbr[title],
@@ -219,9 +220,7 @@ figure {
 img {
     vertical-align: middle;
     border-style: none;
-    height: 302px;
-    width: 393px;
-}
+    }
 
 svg:not(:root) {
     overflow: hidden;
@@ -617,7 +616,8 @@ pre {
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-right: -15px;
-    margin-left: 65px;
+    margin-left: 171px;
+    width: 632px;
 }
 
 .no-gutters {
@@ -2291,6 +2291,8 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
 
 .form-group {
     margin-bottom: 1rem;
+    width: 634px;
+    margin-left: 4px;
 }
 
 .form-text {
@@ -3500,7 +3502,7 @@ tbody.collapse.show {
     padding: 0.25rem 1.5rem;
     clear: both;
     font-weight: 400;
-    color: #212529;
+    color: #EFB73E;
     text-align: inherit;
     white-space: nowrap;
     background-color: transparent;
@@ -3508,7 +3510,7 @@ tbody.collapse.show {
 }
 
     .dropdown-item:hover, .dropdown-item:focus {
-        color: #16181b;
+        color: #868e96;
         text-decoration: none;
         background-color: #f8f9fa;
     }
@@ -4115,7 +4117,8 @@ tbody.collapse.show {
         }
 
         .nav-tabs .nav-link.disabled {
-            color: #868e96;
+            /* color: #868e96;*/
+            color: white;
             background-color: transparent;
             border-color: transparent;
         }
@@ -4705,8 +4708,8 @@ tbody.collapse.show {
     background-color: #fff;
     background-clip: border-box;
     border-radius: 0.25rem;
-    top: 0px;
-    left: 585px;
+    top: -1px;
+    left: 584px;
     width: 228px;
     height: 213px;
 }
@@ -5216,6 +5219,8 @@ tbody.collapse.show {
     padding: 2rem 1rem;
     margin-bottom: 2rem;
     background-color: #e9ecef;
+    /*background-image: url("business.jpg");
+    background-repeat: no-repeat;*/
     border-radius: 0.3rem;
 }
 
@@ -5333,8 +5338,8 @@ tbody.collapse.show {
     color: #741d17;
     background-color: #f9d7d5;
     border-color: #f6c7c4;
-    top: 335px;
-    left: 0px;
+    top: 227px;
+    left: 39px;
     width: 273px;
 }
 
@@ -6369,6 +6374,8 @@ button.close {
 
 .bg-primary {
     background-color: #E95420 !important;
+    top: 0px;
+    left: 0px;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -9606,6 +9613,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .text-muted {
     color: #868e96 !important;
+    height: 16px;
 }
 
 .text-hide {
@@ -9705,4 +9713,22 @@ a.text-dark:hover, a.text-dark:focus {
     .table-bordered td {
         border: 1px solid #ddd !important;
     }
+
+    /* logout style*/
+    a.logout:link {
+        position: absolute;
+        top: 0;
+        float: right;
+    }
+
+    .float-left {
+        float :left;
+    }
+
+    .float-right {
+        float: right;
+        margin-right:10px;
+    }
+
+
 }

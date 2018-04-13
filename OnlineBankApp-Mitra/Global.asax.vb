@@ -21,7 +21,7 @@ Public Class Global_asax
     End Sub
 
     Sub Application_Error()
-        Server.Transfer("~/ErrorPage.aspx")
+        Response.Redirect("ErrorPage.aspx")
     End Sub
 
 End Class
