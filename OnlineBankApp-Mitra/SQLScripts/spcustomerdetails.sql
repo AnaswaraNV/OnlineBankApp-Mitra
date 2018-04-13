@@ -2,18 +2,17 @@
 	@Username varchar(30),
 	@Firstname varchar(50), 
 	@Lastname varchar(50),   
-	@Password varchar(50),  
+	@Password nvarchar(50),  
 	@isLockedOut Bit,
 	@SecurityQuestion varchar(50), 
-	@SecurityAnswer varchar(50),  
+	@SecurityAnswer nvarchar(50),  
 	@FailedPasswordAttemptCount             INT,
 	@FailedPasswordAttemptWindowStart      DATETIME,      
 	@FailedPasswordAnswerAttemptCount      INT      ,     
 	@FailedPasswordAnswerAttemptWindowStart DATETIME ,     
-	@ERROR VARCHAR(100) OUT  
+	@ERROR VARCHAR(100) OUT 
 AS  
 BEGIN  
-SET NOCOUNT ON;  
 
 --defining salt
 DECLARE @salt UNIQUEIDENTIFIER
@@ -43,10 +42,10 @@ BEGIN
 				@FailedPasswordAnswerAttemptWindowStart, 
 				@salt)  
 
-	SET @ERROR = @Username + ' Registered Successfully'  
+	SET @ERROR = 'User Registered Successfully'  
 END  
 ELSE  
 	BEGIN  
-	SET @ERROR = @Username + ' Already Exists'  
+	SET @ERROR = 'Username Already Exists.Try Again!'  
 	END  
 END

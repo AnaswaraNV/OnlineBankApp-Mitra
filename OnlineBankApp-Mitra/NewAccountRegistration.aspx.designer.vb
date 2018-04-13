@@ -84,4 +84,13 @@ Partial Public Class NewAccountRegistration
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblMessage As Global.System.Web.UI.WebControls.Label
+    
+    '''<summary>
+    '''logout control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents logout As Global.System.Web.UI.WebControls.Button
 End Class

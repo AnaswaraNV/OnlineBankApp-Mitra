@@ -83,8 +83,25 @@ Namespace DataAccess
             Return isCustomerValid
         End Function
 
-        Friend Function Create_Transaxn(transaction As Transaction, balance As Double) As Boolean
+        Friend Function ReadAccountBalance(ByVal username As String) As Double
+            Dim reader As SqlDataReader = Nothing
+            Dim SqlQuery = "SELECT Balance  
+                            From AccountDetails
+                            Where username = @Username"
+            Dim cmd As New SqlCommand(SqlQuery, SqlConnection) With {
+                .CommandType = CommandType.Text
+            }
+            cmd.Parameters.AddWithValue("@Username", username)
+            reader = cmd.ExecuteReader
+            Dim balance As Double
+            While reader.Read()
+                Double.TryParse(reader("Balance"), balance)
+            End While
+            Return balance
+        End Function
 
+        Friend Function Create_Transaxn(transaction As Transaction, balance As Double) As Boolean
+            Dim reader As SqlDataReader = Nothing
             Dim isSuccess As Boolean = False
             'Try
             'current time
@@ -97,12 +114,33 @@ Namespace DataAccess
             cmd.Parameters.AddWithValue("@TransactionId", transaction.TransactionId)
             cmd.Parameters.AddWithValue("@Amount", transaction.Amount)
             cmd.Parameters.AddWithValue("@TransactionType", transaction.TransactionType)
+            cmd.Parameters.AddWithValue("@TransactionDesc", transaction.TransactionDesc)
             cmd.Parameters.AddWithValue("@TransactionDate", createDate)
             cmd.Parameters.AddWithValue("@Balance", balance)
-            'cmd.Parameters.Add("@Message", SqlDbType.VarChar, 100)
-            'cmd.Parameters("@Message").Direction = ParameterDirection.Output
-            Dim returnValue As Integer = cmd.ExecuteNonQuery()
-
+            cmd.Parameters.Add("@ReturnValue", SqlDbType.Int, 10)
+            cmd.Parameters("@ReturnValue").Direction = ParameterDirection.Output
+            reader = cmd.ExecuteReader
+            Dim returnValue As Integer = CInt(cmd.Parameters("@ReturnValue").Value)
+            Select Case returnValue
+                Case 0
+                    MessageHandler = "Invalid transaction type"
+                Case 1
+                    MessageHandler = "Account Number doesn't Exist"
+                Case 2
+                    MessageHandler = "Amount is negative"
+                Case 3
+                    MessageHandler = "Insufficient Funds"
+                Case 4
+                    MessageHandler = "Updation Successful"
+                    isSuccess = True
+                Case 5
+                    MessageHandler = "Transaction Id already there! Try again!"
+                Case Else
+                    MessageHandler = "Try again!"
+            End Select
+            If reader.IsClosed <> True Then
+                reader.Close()
+            End If
             'If returnValue > 0 Then
             'isSuccess = True
             'setting the account list value
@@ -117,12 +155,8 @@ Namespace DataAccess
             'have to call error page here
             'MessageHandler = "Oops an error occured!!"
             'End Try
-            'Return isSuccess
+            Return isSuccess
         End Function
-
-        Friend Sub ReadTransactionDetails(username As String)
-            Throw New NotImplementedException()
-        End Sub
 
         ''' <summary>
         ''' 'Creating account 

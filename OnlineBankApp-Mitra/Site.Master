@@ -14,7 +14,7 @@
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <form runat="server">
@@ -49,25 +49,30 @@
             <div class="collapse navbar-collapse" id="navbarColor01">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="~/AccountSummary">AccountSummary<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="AccountSummary">AccountSummary<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="~/Contact">Contact Us</a>
+                        <a class="nav-link" href="Contact">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="~/About">About</a>
+                        <a class="nav-link" href="About">About</a>
                     </li>
-                </ul>
+                    </ul>  
+                <!-- end of ul in nav bar -->
+                                 
             </div>
         </nav>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mitra - A helping hand for your Banking needs</p>
-            </footer>
         </div>
     </form>
+    <div class="container body-content">
+        <footer style="align-content: center">
+            <p>&copy; <%: DateTime.Now.Year %> - Mitra - A helping hand for your Banking needs</p>
+        </footer>
+    </div>
 </body>
+
 </html>

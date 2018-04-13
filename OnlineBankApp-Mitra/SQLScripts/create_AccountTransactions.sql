@@ -8,4 +8,4 @@
 	CONSTRAINT [FK_accounttransaction_Aid] FOREIGN KEY(AccountId) 
 				REFERENCES AccountDetails(AccountId),
 	CONSTRAINT [PK_accounttrasnsaction_ATId] PRIMARY KEY(TransactionId), 
-    CONSTRAINT [CK_TransactionType] CHECK ([TransactionType]='D' OR [TransactionType]='W'));
+	CONSTRAINT [CK_TransactionType] CHECK ([TransactionType]='D' OR [TransactionType]='W'));

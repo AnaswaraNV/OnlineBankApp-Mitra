@@ -55,11 +55,15 @@ Public Class NewAccountRegistration
             lblMessage.Text = DbHandler.MessageHandler
 
             If isSuccess Then
-                AccountList.AccountListObj.Add(AccountObj)
+                'AccountList.AccountListObj.Add(AccountObj)
                 Response.Redirect("AccountSummary.aspx")
             End If
 
         End If
 
+    End Sub
+
+    Protected Sub logout_Click(sender As Object, e As EventArgs) Handles logout.Click
+        Response.Redirect("Default.aspx")
     End Sub
 End Class

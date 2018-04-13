@@ -12,7 +12,7 @@ Option Explicit On
 
 
 Partial Public Class _Default
-
+    
     '''<summary>
     '''successbutton control.
     '''</summary>
@@ -21,7 +21,7 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents successbutton As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''successLabel control.
     '''</summary>
@@ -30,7 +30,7 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents successLabel As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''InputUsername control.
     '''</summary>
@@ -39,7 +39,7 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents InputUsername As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''InputPassword control.
     '''</summary>
@@ -48,7 +48,7 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents InputPassword As Global.System.Web.UI.WebControls.TextBox
-
+    
     '''<summary>
     '''SignInButton control.
     '''</summary>
@@ -57,7 +57,7 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents SignInButton As Global.System.Web.UI.WebControls.Button
-
+    
     '''<summary>
     '''dvMessage control.
     '''</summary>
@@ -66,7 +66,7 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents dvMessage As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
+    
     '''<summary>
     '''lblMessage control.
     '''</summary>
@@ -75,7 +75,7 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblMessage As Global.System.Web.UI.WebControls.Label
-
+    
     '''<summary>
     '''hlEmail control.
     '''</summary>

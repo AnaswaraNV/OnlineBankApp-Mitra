@@ -12,27 +12,27 @@
 
     <h1>Security Questions</h1>
     <p>This computer or device is not registered in your profile. Please verify your identity by answering your personal security question. This computer or device is not registered in your profile. Please verify your identity by answering your personal security question. </p>
-    <fieldset>
+    <fieldset>        
         <div class="form-group">
-            <label>Question</label>
-            <asp:TextBox ID="InputQuestion" runat="server" type="text" CssClass="form-control" Text="Which school did you go to?" ReadOnly="True"></asp:TextBox>
-        </div>
-        <div class="form-group">
-            <label>Answer</label>
-            <asp:TextBox ID="InputAnswer" runat="server" type="password" CssClass="form-control" placeholder="Password"></asp:TextBox>
+              <label>Question</label>
+            <asp:TextBox ID="InputQuestion" runat="server" type="text" CssClass="form-control" Text="Which school did you go to?" ReadOnly="True" Width="236px"></asp:TextBox>
+             <label>Answer</label>
+            <asp:TextBox ID="InputAnswer" runat="server" type="password" CssClass="form-control" placeholder="Password" Width="235px"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" 
-                                        controltovalidate="InputAnswer" runat="server" ErrorMessage="This field is required"></asp:RequiredFieldValidator>
-        </div>
+                                        controltovalidate="InputAnswer" runat="server" ErrorMessage="Enter an answer"></asp:RequiredFieldValidator>
              <div id="dvMessage" runat="server" visible="false" CssClass="alert alert-danger">
             <strong> 
                 <asp:Label ID="lblMessage" runat="server" />
             </strong>
         </div>
+        </div>
+           
+            
         <div class="row">
                 <br />
-                <asp:Button ID="CancelButton" runat="server" Text="Cancel" type="submit" CssClass="btn btn-primary" />
+                <asp:Button ID="CancelButton" runat="server" Text="Cancel" type="submit" CssClass="btn btn-primary float-left" />
 
-                <asp:Button ID="ContinueButton" runat="server" Text="Continue" type="submit" CssClass="btn btn-primary" />
+                <asp:Button ID="ContinueButton" runat="server" Text="Continue" type="submit" CssClass="btn btn-primary float-right" Width="84px" />
         </div>
         <br/>
         <br/>
@@ -48,6 +48,7 @@
         <span>
             <input id="Radio2" type="radio" /> 
             <label><strong>No, this is a public device</strong></label>
+            <br />
         </span>
         </div>
     </fieldset>

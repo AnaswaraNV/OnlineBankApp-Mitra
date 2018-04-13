@@ -68,15 +68,6 @@ Partial Public Class Registration
     Protected WithEvents TelRegValidator As Global.System.Web.UI.WebControls.RegularExpressionValidator
     
     '''<summary>
-    '''AccountTypeSelection control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents AccountTypeSelection As Global.System.Web.UI.WebControls.ListBox
-    
-    '''<summary>
     '''InputQuestion control.
     '''</summary>
     '''<remarks>

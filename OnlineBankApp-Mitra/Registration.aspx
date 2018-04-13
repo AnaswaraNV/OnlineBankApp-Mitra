@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Registration.aspx.vb" Inherits="OnlineBankApp_Mitra.Registration" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <%-- this logic is to validate if password and confirm password conain same values--%>
 
@@ -47,13 +48,6 @@
                 runat="server">
             </asp:RegularExpressionValidator>
         </div>
-        <div class="form-group" aria-describedby="chooseAccountType">
-            <label for="AccountType">Choose your Account type</label>
-            <asp:ListBox runat="server" ID="AccountTypeSelection" SelectionMode="Multiple" class="form-control">
-                <asp:ListItem Text="Checquing Account"></asp:ListItem>
-                <asp:ListItem Text="Savings Account"></asp:ListItem>
-            </asp:ListBox>
-        </div>
         <div class="form-group">
             <label for="SecurityQuestion">SecurityQuestion</label>
             <asp:TextBox ID="InputQuestion" runat="server"
@@ -73,7 +67,7 @@
         <div class="form-group">
             <label for="InputPassword">Password</label>
             <asp:TextBox ID="InputPassword" runat="server" type="password"
-                class="form-control" placeholder="Password" minlength="5" 
+                class="form-control" placeholder="Password" minlength="5"
                 CausesValidation="true"></asp:TextBox>
             <asp:RegularExpressionValidator
                 ID="PwdRegExValidator"
@@ -103,28 +97,22 @@
 
             </asp:CompareValidator>
 
-        </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value="">
+                    I here by agree that all the information given is correct
+                </label>
+                <br />
+            </div>
 
-        <div class="form-check">
-        <label class="form-check-label">
-          <input class="form-check-input" type="checkbox" value="">
-          I here by agree that all the information given is correct
-        </label>
-            <br />
-      </div>
-        <asp:Button ID="RegisterButton" runat="server" Text="Register" 
+        </div>
+        <asp:Button ID="RegisterButton" runat="server" Text="Register"
             type="submit" Class="btn btn-primary" />
-        
-        
-        <br />
-        <br />
         <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
-            <strong> 
-            <asp:Label ID="lblMessage" runat="server" />
-            </strong>
-        </div>        
-        <br />
-       <asp:HyperLink href="Default.aspx" runat="server" class="btn btn-link">Sign In back</asp:HyperLink>                   
+            <asp:Label ID="lblMessage" runat="server">
+            </asp:Label>
+            <asp:HyperLink href="Default.aspx" runat="server" class="btn btn-link">Sign In back</asp:HyperLink>
+        </div>
         <br />
     </fieldset>
 </asp:Content>

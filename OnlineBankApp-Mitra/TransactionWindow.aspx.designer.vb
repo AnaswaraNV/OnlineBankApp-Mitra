@@ -77,6 +77,15 @@ Partial Public Class TransactionWindow
     Protected WithEvents SubmitButton As Global.System.Web.UI.WebControls.Button
     
     '''<summary>
+    '''HyperLink2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents HyperLink2 As Global.System.Web.UI.WebControls.HyperLink
+    
+    '''<summary>
     '''dvMessage control.
     '''</summary>
     '''<remarks>

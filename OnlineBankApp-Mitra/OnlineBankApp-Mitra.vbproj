@@ -167,7 +167,7 @@
     <Content Include="404.aspx" />
     <Content Include="DetailedSummary.aspx" />
     <Content Include="ErrorPage.aspx" />
-    <Content Include="favicon.ico" />
+    <Resource Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -193,6 +193,13 @@
     <Content Include="NewAccountRegistration.aspx" />
     <Content Include="PerfromTransaction.aspx" />
     <Content Include="Registration.aspx" />
+    <Resource Include="Resources\business.jpg" />
+    <Resource Include="Resources\Oops.jpg" />
+    <Resource Include="Resources\5.jpg" />
+    <Resource Include="Resources\4.jpg" />
+    <Resource Include="Resources\3.jpg" />
+    <Resource Include="Resources\2.jpg" />
+    <Resource Include="Resources\1.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
