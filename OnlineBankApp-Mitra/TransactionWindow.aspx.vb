@@ -22,7 +22,6 @@ Public Class TransactionWindow
 
     Private Sub SubmitButton_Click(sender As Object, e As EventArgs) Handles SubmitButton.Click
         CreateTransaction()
-
     End Sub
 
     Private Sub CreateTransaction()
@@ -54,8 +53,6 @@ Public Class TransactionWindow
             'setting message
             dvMessage.Visible = True
             lblMessage.Text = DbHandler.MessageHandler
-            '$("#getCodeModal").modal('show');
-
             If isSuccess Then
 
             End If

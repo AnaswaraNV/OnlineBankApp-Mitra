@@ -35,7 +35,8 @@ Public Class BundleConfig
         'Adding new united style to the bundle 
         bundles.Add(New StyleBundle("~/Content/css").Include(
             "~/Content/bootstrap-united.css",
-            "~/Content/Site.css"))
+            "~/Content/Site.css",
+             "~/Content/mystyle.css"))
 
     End Sub
 End Class

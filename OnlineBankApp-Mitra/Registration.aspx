@@ -99,15 +99,25 @@
 
             <div class="form-check">
                 <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value="">
-                    I here by agree that all the information given is correct
+                    <!--<input class="form-check-input" type="checkbox" value=""> -->
+                    <span><asp:CheckBox ID="chkBox" runat="server" />
+                    <asp:Label AssociatedControlID="chkBox" runat="server">I here by agree that all the information given is correct</asp:Label>
+                         </span>
+                    <asp:CustomValidator ID="CustomValidator1" runat="server"
+                        ErrorMessage="Please confirm whether entered info is correct!"
+                        ForeColor="Red"
+                        OnServerValidate="CustomValidator1_ServerValidate">
+                    </asp:CustomValidator>
+                       
                 </label>
                 <br />
             </div>
 
         </div>
+        <br />
         <asp:Button ID="RegisterButton" runat="server" Text="Register"
             type="submit" Class="btn btn-primary" />
+         <!-- ERROR/MESSAGE LABEL-->
         <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
             <asp:Label ID="lblMessage" runat="server">
             </asp:Label>

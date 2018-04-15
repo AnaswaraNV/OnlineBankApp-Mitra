@@ -6,12 +6,12 @@ Public Class _Default
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
         If Not IsPostBack Then
-            loadData()
+            LoadData()
         End If
     End Sub
 
 
-    Public Sub loadData()
+    Public Sub LoadData()
         Dim dbObj As New DbHandler()
         'Dim source As DataSet = dbObj.ReadDatabase("SELECT * FROM CustomerDetails")
     End Sub

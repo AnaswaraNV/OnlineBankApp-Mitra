@@ -1,0 +1,52 @@
+﻿
+    /* logout style*/
+.logout-container {
+    position: absolute;
+    top: 0px;
+    right: 16px;
+}
+
+
+.image-container{
+    height:24px;
+    width:24px;
+}
+
+.avatar-positon{
+    position:relative;
+
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+    margin-right: 10px;
+}
+
+.btn-container {
+    margin-left: 0;
+}
+
+.cancel-btn {
+    padding-right: 194px;
+    padding-left: 0px;
+}
+
+.continue-btn {
+    margin-left: 20px;
+}
+
+.summary-container {
+    margin-left: 0;
+    width:90%;
+}
+
+.summary-left {
+    margin-right: 70px;
+    padding-left: 0px;
+}
+
+
