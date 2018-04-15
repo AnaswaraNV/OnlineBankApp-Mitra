@@ -617,7 +617,7 @@ pre {
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: 171px;
-    width: 632px;
+    width: 805px;
 }
 
 .no-gutters {
@@ -701,6 +701,8 @@ pre {
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 50%;
+    top: 0px;
+    left: 0px;
 }
 
 .col-7 {
@@ -2320,6 +2322,9 @@ select.form-control-lg:not([size]):not([multiple]), .input-group-lg > select.for
     position: relative;
     display: block;
     padding-left: 1.25rem;
+    top: 3px;
+    left: 0px;
+    height: 21px;
 }
 
 .form-check-input {
@@ -4712,6 +4717,7 @@ tbody.collapse.show {
     left: 584px;
     width: 228px;
     height: 213px;
+    margin-top: 0px;
 }
 
     .card > hr {
@@ -9712,23 +9718,9 @@ a.text-dark:hover, a.text-dark:focus {
     .table-bordered th,
     .table-bordered td {
         border: 1px solid #ddd !important;
-    }
-
-    /* logout style*/
-    a.logout:link {
-        position: absolute;
-        top: 0;
-        float: right;
-    }
-
-    .float-left {
-        float :left;
-    }
-
-    .float-right {
-        float: right;
-        margin-right:10px;
-    }
-
+    }  
 
 }
+
+
+

@@ -162,6 +162,7 @@
     <Content Include="Content\bootstrap-united.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\mystyle.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="404.aspx" />
@@ -200,6 +201,8 @@
     <Resource Include="Resources\3.jpg" />
     <Resource Include="Resources\2.jpg" />
     <Resource Include="Resources\1.jpg" />
+    <Resource Include="Resources\logout.jpg" />
+    <Resource Include="Resources\avatar.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

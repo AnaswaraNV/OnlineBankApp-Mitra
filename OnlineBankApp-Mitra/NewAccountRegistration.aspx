@@ -2,7 +2,19 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
-
+         <!-- LOGOUT -->
+    <div class="logout-container">
+        <span class="avatar-position">
+            <asp:Image ID="Image2" ImageUrl="~/Resources/avatar.png" 
+                class="image-container" runat="server" />  
+                      </span>
+        <asp:HyperLink ID="HyperLink1" href="Default.aspx"
+            runat="server"> 
+            <asp:Image ID="Image1" ImageUrl="~/Resources/logout.jpg" 
+                class="image-container" runat="server" />  
+        </asp:HyperLink>    
+    </div>
+     <!-- ALERT-->
     <div class="alert alert-dismissible alert-success">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <h4 class="alert-heading">Welcome!</h4>
@@ -40,6 +52,7 @@
             <br />
             <br />
 
+             <!-- ERROR / SUCCESS MESSAGE-->
             <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
                 <strong>
                     <asp:Label ID="lblMessage" runat="server" />
@@ -49,9 +62,7 @@
 
         <br />
     </fieldset>
-
-    <asp:Button ID="logout" runat="server" Text="Logout"
-        type="submit" Class="logoutLblPos" />
+     <!-- QUOTE-->
     <blockquote class="blockquote text-center">
         <p class="mb-0">I have been customer to Mitra. And working with this institution has been a pleasure</p>
         <footer class="blockquote-footer">Someone famous in <cite title="Source Title">CGI</cite></footer>

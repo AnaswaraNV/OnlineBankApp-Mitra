@@ -2,6 +2,18 @@
     CodeBehind="PerfromTransaction.aspx.vb" Inherits="OnlineBankApp_Mitra.PerfromTransaction"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+        <!-- LOGOUT -->
+    <div class="logout-container">
+        <span class="avatar-position">
+            <asp:Image ID="Image2" ImageUrl="~/Resources/avatar.png" 
+                class="image-container" runat="server" />  
+                      </span>
+        <asp:HyperLink ID="HyperLink1" href="Default.aspx"
+            runat="server"> 
+            <asp:Image ID="Image1" ImageUrl="~/Resources/logout.jpg" 
+                class="image-container" runat="server" />  
+        </asp:HyperLink>    
+    </div>
      <h1>Perform Transaction on your account</h1>
     <fieldset>
         <div class="form-group">
@@ -39,7 +51,7 @@
     
         <br />
         <br />
-             
+        <!-- ERROR/MESSAGE LABEL-->   
         <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
             <strong> 
             <asp:Label ID="lblMessage" runat="server" />

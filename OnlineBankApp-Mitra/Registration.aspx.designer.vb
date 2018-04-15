@@ -131,6 +131,24 @@ Partial Public Class Registration
     Protected WithEvents CompareValidator1 As Global.System.Web.UI.WebControls.CompareValidator
     
     '''<summary>
+    '''chkBox control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents chkBox As Global.System.Web.UI.WebControls.CheckBox
+    
+    '''<summary>
+    '''CustomValidator1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CustomValidator1 As Global.System.Web.UI.WebControls.CustomValidator
+    
+    '''<summary>
     '''RegisterButton control.
     '''</summary>
     '''<remarks>
