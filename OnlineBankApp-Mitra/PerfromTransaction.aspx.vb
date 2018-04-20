@@ -17,7 +17,6 @@ Public Class PerfromTransaction
         Dim login = DirectCast(Session("login"), Model.Login)
         If login IsNot Nothing Then
             _username = login.Username
-            Debug.WriteLine("username" & _username)
         Else
             Response.Redirect("Default.aspx")
             End If

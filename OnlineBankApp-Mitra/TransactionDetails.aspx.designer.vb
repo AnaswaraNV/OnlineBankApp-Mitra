@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class TransactionWindow
+Partial Public Class TransactionDetails
     
     '''<summary>
     '''Image2 control.
@@ -59,74 +59,47 @@ Partial Public Class TransactionWindow
     Protected WithEvents AutoAccntID As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''TransactionTypeSelection control.
+    '''TransactionId control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TransactionTypeSelection As Global.System.Web.UI.WebControls.ListBox
+    Protected WithEvents TransactionId As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''InputAmount control.
+    '''TransactionType control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents InputAmount As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents TransactionType As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''RegularExpressionValidator1 control.
+    '''TransactionAmount control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RegularExpressionValidator1 As Global.System.Web.UI.WebControls.RegularExpressionValidator
+    Protected WithEvents TransactionAmount As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''TransxnDescBox control.
+    '''TransactionDesc control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents TransxnDescBox As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents TransactionDesc As Global.System.Web.UI.WebControls.TextBox
     
     '''<summary>
-    '''SubmitButton control.
+    '''TransactionDate control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SubmitButton As Global.System.Web.UI.WebControls.Button
-    
-    '''<summary>
-    '''dvMessage control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents dvMessage As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-    
-    '''<summary>
-    '''lblMessage control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblMessage As Global.System.Web.UI.WebControls.Label
-    
-    '''<summary>
-    '''details control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents details As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+    Protected WithEvents TransactionDate As Global.System.Web.UI.WebControls.TextBox
 End Class

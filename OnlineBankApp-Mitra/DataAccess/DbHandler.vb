@@ -34,6 +34,23 @@ Namespace DataAccess
             Return dataSet
         End Function
 
+        Friend Function ReadTransactionDetails(accntId As String, transactionId As String) As DataSet
+            Dim SqlCommand = New SqlCommand("SELECT TransactionId,
+                                                    Amount,
+                                                    TransactionType, 
+                                                    TransactionDesc, 
+                                                    TransactionDate
+                                                    From AccountTransactions
+                                                    Where AccountId = @AccountId 
+                                                    And TransactionId = @TransactionId", SqlConnection)
+            SqlCommand.Parameters.AddWithValue("@AccountId", accntId)
+            SqlCommand.Parameters.AddWithValue("@TransactionId", transactionId)
+            sqlDataAdapter = New SqlDataAdapter(SqlCommand)
+            dataSet = New DataSet()
+            sqlDataAdapter.Fill(dataSet)
+            Return dataSet
+        End Function
+
         ''' <summary>
         ''' Validating if the user entered correct security answer
         ''' </summary>

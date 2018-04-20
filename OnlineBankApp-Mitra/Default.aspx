@@ -57,7 +57,6 @@
                 <a class="btn btn-default" href="https://www.canada.ca/en/financial-consumer-agency/services/loans.html">Learn more &raquo;</a>
             </p>
         </div>
-    </div>
-
+    </div> 
 
 </asp:Content>
