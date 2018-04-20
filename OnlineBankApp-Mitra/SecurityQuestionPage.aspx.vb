@@ -3,6 +3,7 @@
 Public Class SecurityQuestionPage
     Inherits System.Web.UI.Page
     Property Username
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'If Not IsPostBack Then
         Dim loginCheck As Boolean = (System.Web.HttpContext.Current.User IsNot Nothing AndAlso
@@ -14,10 +15,13 @@ Public Class SecurityQuestionPage
         If login IsNot Nothing Then
             Username = login.Username
         End If
-        'End If
-
     End Sub
 
+    ''' <summary>
+    ''' When Continue button is clicked security questions are validated and procced to account summary 
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Protected Sub ContinueButton_Click(sender As Object, e As EventArgs) Handles ContinueButton.Click
         'calling db handler object
         Dim dbObj As New DbHandler()

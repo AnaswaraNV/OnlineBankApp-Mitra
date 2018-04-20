@@ -41,7 +41,7 @@
 
         <%-- included new nav bar --%>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a class="navbar-brand" href="#">Mitra</a>
+            <a class="navbar-brand" href="Default.aspx">Mitra</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -67,9 +67,9 @@
         </div>
     </form>
     <div class="container body-content">
-        <footer style="align-content: center">
+        <!--footer style="align-content: center">
             <p>&copy; <%: DateTime.Now.Year %> - Mitra - A helping hand for your Banking needs</p>
-        </footer>
+        </!--footer-->
     </div>
 </body>
 

@@ -18,7 +18,7 @@
     <div class="alert alert-dismissible alert-success">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         <h4 class="alert-heading">Welcome!</h4>
-        <p class="mb-0">Once you register your account , we will send you the card within 5 days!</p>
+        <p class="mb-0">Once you register your account , we will send you the card within 5-10 days!</p>
     </div>
     <h1>Register your new Account info</h1>
     <fieldset>
@@ -65,6 +65,6 @@
      <!-- QUOTE-->
     <blockquote class="blockquote text-center">
         <p class="mb-0">I have been customer to Mitra. And working with this institution has been a pleasure</p>
-        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">CGI</cite></footer>
+        <footer class="blockquote-footer">Anonymous Customer</footer>
     </blockquote>
 </asp:Content>
