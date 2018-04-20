@@ -243,7 +243,6 @@
     <Content Include="SQLScripts\spSecurity.sql" />
     <Content Include="SQLScripts\spSecurityold.sql" />
     <Content Include="SQLScripts\testingLogin.sql" />
-    <Content Include="testgrid.aspx" />
     <Content Include="TransactionWindow.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -369,13 +368,6 @@
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="testgrid.aspx.designer.vb">
-      <DependentUpon>testgrid.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="testgrid.aspx.vb">
-      <DependentUpon>testgrid.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
     <Compile Include="TransactionWindow.aspx.designer.vb">
       <DependentUpon>TransactionWindow.aspx</DependentUpon>
     </Compile>
@@ -428,9 +420,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Membership\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

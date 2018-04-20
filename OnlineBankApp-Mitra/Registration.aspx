@@ -51,7 +51,7 @@
         <div class="form-group">
             <label for="SecurityQuestion">SecurityQuestion</label>
             <asp:TextBox ID="InputQuestion" runat="server"
-                type="text" Text="Which school did you go to?" ReadOnly="true" class="form-control"></asp:TextBox>
+                type="text" Text="Which school did you go to?" ReadOnly="true" class="form-control" Width="238px"></asp:TextBox>
         </div>
         <div class="form-group">
             <label for="Answer">SecurityAnswer</label>
@@ -102,7 +102,7 @@
                     <!--<input class="form-check-input" type="checkbox" value=""> -->
                     <span><asp:CheckBox ID="chkBox" runat="server" />
                     <asp:Label AssociatedControlID="chkBox" runat="server">I here by agree that all the information given is correct</asp:Label>
-                         </span>
+                     </span>
                     <asp:CustomValidator ID="CustomValidator1" runat="server"
                         ErrorMessage="Please confirm whether entered info is correct!"
                         ForeColor="Red"
@@ -117,12 +117,14 @@
         <br />
         <asp:Button ID="RegisterButton" runat="server" Text="Register"
             type="submit" Class="btn btn-primary" />
+
          <!-- ERROR/MESSAGE LABEL-->
         <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
             <asp:Label ID="lblMessage" runat="server">
             </asp:Label>
             <asp:HyperLink href="Default.aspx" runat="server" class="btn btn-link">Sign In back</asp:HyperLink>
         </div>
+ 
         <br />
     </fieldset>
 </asp:Content>

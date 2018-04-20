@@ -10,7 +10,5 @@
             Me.Username = username
             Me.Password = password
         End Sub
-
-
     End Class
 End Namespace

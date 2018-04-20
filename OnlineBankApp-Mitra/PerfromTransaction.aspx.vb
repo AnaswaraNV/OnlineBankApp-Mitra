@@ -22,18 +22,8 @@ Public Class PerfromTransaction
             Response.Redirect("Default.aspx")
             End If
 
-            'Dim AccountGridView As New GridView
-            'AccountGridView = DirectCast(Session("AccountGridView"), GridView)
-
-            'If (Not (PreviousPage) Is Nothing) Then
-            'Dim ContentPlaceHolder1 As Control = PreviousPage.Master.FindControl("MainContent")
-            'Dim AccountGridView As GridView = CType(PreviousPage.FindControl("AccountGridView"), GridView)
-            'Dim AccountGridView As GridView = DirectCast(Me.Page.PreviousPage.Master.FindControl("AccountGridView"), GridView)
-            Dim selectedRow As GridViewRow = DirectCast(Session("SelectedRow"), GridViewRow)
-            'Response.Write("accntid: " + selectedRow.Cells(0).Text & "<br />")
-            'Response.Write("desc: " + selectedRow.Cells(1).Text & "<br />")
-            'Response.Write("balance: " + selectedRow.Cells(2).Text)
-            _accountId = selectedRow.Cells(0).Text
+        Dim selectedRow As GridViewRow = DirectCast(Session("SelectedRow"), GridViewRow)
+        _accountId = selectedRow.Cells(0).Text
             _balance = selectedRow.Cells(2).Text
         'End If
         ' End If
@@ -46,7 +36,7 @@ Public Class PerfromTransaction
         Dim dbHandlerObj As New DbHandler()
         Dim index = TransactionTypeSelection.SelectedIndex
 
-
+        'make sure transaction type is selected
         If Not (index = 0 OrElse index = 1) Then
             dvMessage.Visible = True
             lblMessage.Text = "Please enter all fields"
@@ -55,7 +45,7 @@ Public Class PerfromTransaction
             Dim TransaxnDate As Date = DateAndTime.Now
             Dim amount As Double
             Double.TryParse(Me.InputAmount.Text, amount)
-            'new transaction values
+            'new transaction values with an auto generated value to transaction id 
             Dim transaction As New Transaction(_username, _accountId, DbHandler.GenerateRandomId(),
                                                amount, desc,
                                                Me.TransxnDescBox.Text, TransaxnDate)

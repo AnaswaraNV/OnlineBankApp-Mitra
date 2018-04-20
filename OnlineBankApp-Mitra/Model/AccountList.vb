@@ -16,7 +16,7 @@
             End Set
         End Property
 
-        Public Function add(account As Account) As List(Of Account)
+        Public Function Add(account As Account) As List(Of Account)
             Me.AccountListObj1.Add(account)
             Return Me.AccountListObj1
         End Function

@@ -1,5 +1,11 @@
-﻿Namespace Model
+﻿
+Namespace Model
     Public Class Account
+        Property AccountId As String
+        Property Username As String
+        Property AccountDesc As String
+        Property Balance As Double
+        Property AccountStatus As Boolean
 
         Public Sub New()
 
@@ -11,13 +17,5 @@
             Me.Balance = balance
             Me.AccountStatus = accountStatus
         End Sub
-
-        Property AccountId As String
-        Property Username As String
-        Property AccountDesc As String
-        Property Balance As Double
-        Property AccountStatus As Boolean
-
-
     End Class
 End Namespace

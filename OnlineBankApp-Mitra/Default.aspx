@@ -5,9 +5,10 @@
     <div class="jumbotron">
         <h1>Mitra</h1>
         <p class="lead">A helping hand to your Online banking needs</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <p><a href="https://www.canada.ca/en/financial-consumer-agency/services/loans.html" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 
     </div>
+    <div class="row row-setup">
     <fieldset>
         <div class="alert alert-dismissible alert-success" style="display:none;">
             <asp:Button runat="server" ID="successbutton" type="button" class="close" data-dismiss="alert" ></asp:Button>
@@ -30,25 +31,21 @@
             </strong></div> 
         <br />
         <span>
-        <p>Not a member ?
+        Not a member ?
          <asp:HyperLink href="Registration.aspx" runat="server" class="btn btn-link">Sign Up</asp:HyperLink>                   
-        </p>
-            </span>
+       </span>
         <div>
-           <asp:HyperLink runat="server" NavigateUrl='<%# Bind("Email", "mailto:{0}") %>'
-                              Text='<%# Bind("Email") %>'
-                                ID="hlEmail">
-            </asp:HyperLink>
         </div>
     </fieldset>
-    <div class="row">
+        </div>
+    <div class="row row-setup">
         <div class="col-md-4">
             <h2>Apply for home, car, student loans at cheap rates</h2>
             <p>
                 We can offer you bank loans at cheap rates. Contact your local branch for more details.
             </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+                <a class="btn btn-default" href="https://www.canada.ca/en/financial-consumer-agency/services/loans.html">Learn more &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
@@ -57,7 +54,7 @@
                 We offer tax helps. Call us for your personalized accountants and financial experts
             </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+                <a class="btn btn-default" href="https://www.canada.ca/en/financial-consumer-agency/services/loans.html">Learn more &raquo;</a>
             </p>
         </div>
     </div>

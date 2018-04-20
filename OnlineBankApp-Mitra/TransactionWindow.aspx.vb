@@ -24,6 +24,9 @@ Public Class TransactionWindow
         CreateTransaction()
     End Sub
 
+    ''' <summary>
+    ''' A new transaction is created
+    ''' </summary>
     Private Sub CreateTransaction()
         Me.InputUsername.Text = _username
         'create dataaccess obj
@@ -35,6 +38,7 @@ Public Class TransactionWindow
             dvMessage.Visible = True
             lblMessage.Text = "Please enter all fields"
         Else
+            'transaction type is set based on user input
             Dim type As Char
             If index = 0 Then
                 type = "W"
@@ -44,7 +48,7 @@ Public Class TransactionWindow
             Dim TransaxnDate As Date = DateAndTime.Now
             Dim amount As Double
             Double.TryParse(Me.InputAmount.Text, amount)
-            _balance = readBalance()
+            _balance = ReadBalance()
             'new transaction values
             Dim transaction As New Transaction(_username, _accountId, DbHandler.GenerateRandomId(),
                                                amount, type,
@@ -53,13 +57,14 @@ Public Class TransactionWindow
             'setting message
             dvMessage.Visible = True
             lblMessage.Text = DbHandler.MessageHandler
-            If isSuccess Then
-
-            End If
         End If
     End Sub
 
-    Private Function readBalance() As Double
+    ''' <summary>
+    ''' Current balance is fetched from db
+    ''' </summary>
+    ''' <returns></returns>
+    Private Function ReadBalance() As Double
         Dim dbHanlderObj As New DbHandler()
         Dim dataset As New DataSet()
         _balance = dbHanlderObj.ReadAccountBalance(_username)

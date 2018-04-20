@@ -7,7 +7,7 @@ Imports OnlineBankApp_Mitra.Model
 Namespace DataAccess
     Public Class DbHandler
 
-        'Dim sqlConnection As SqlConnection = DirectCast(Application("SqlConnection"), SqlConnection)
+        'sql connection is initialized 
         Property SqlConnection As SqlConnection = SqlConnectionClass.SqlConnectionInit()
         'a variable to pass message between pages 
         Public Shared MessageHandler As String
@@ -16,6 +16,11 @@ Namespace DataAccess
         Dim sqlDataAdapter As SqlDataAdapter
         Dim dataSet As DataSet
 
+        ''' <summary>
+        ''' Account details are saved here
+        ''' </summary>
+        ''' <param name="username"></param>
+        ''' <returns></returns>
         Public Function ReadAccountDetails(ByVal username As String) As DataSet
             Dim SqlCommand = New SqlCommand("SELECT AccountId,
                                                     AccountDesc,
@@ -37,49 +42,49 @@ Namespace DataAccess
         ''' <returns></returns>
         Friend Function Validate_SecurityQuestion(ByVal username As String, ByVal question As String, ByVal answer As String) As Boolean
             Dim isCustomerValid As Boolean = False
-            'Try
+            Try
 
-            Dim reader As SqlDataReader = Nothing
+                Dim reader As SqlDataReader = Nothing
 
-            'calling login stored procedure 
-            Dim cmd As New SqlCommand("spSecurity", SqlConnection) With {
+                'calling login stored procedure 
+                Dim cmd As New SqlCommand("spSecurity", SqlConnection) With {
                 .CommandType = CommandType.StoredProcedure
             }
 
-            cmd.Parameters.AddWithValue("@SecurityQuestion", question)
-            cmd.Parameters.AddWithValue("@SecurityAnswer", answer)
-            cmd.Parameters.AddWithValue("@Username", username)
+                cmd.Parameters.AddWithValue("@SecurityQuestion", question)
+                cmd.Parameters.AddWithValue("@SecurityAnswer", answer)
+                cmd.Parameters.AddWithValue("@Username", username)
 
-            cmd.Parameters.Add("@Message", SqlDbType.VarChar, 100)
-            cmd.Parameters("@Message").Direction = ParameterDirection.Output
+                cmd.Parameters.Add("@Message", SqlDbType.VarChar, 100)
+                cmd.Parameters("@Message").Direction = ParameterDirection.Output
 
-            cmd.Parameters.Add("@RowCount", SqlDbType.Int, 5)
-            cmd.Parameters("@RowCount").Direction = ParameterDirection.Output
+                cmd.Parameters.Add("@RowCount", SqlDbType.Int, 5)
+                cmd.Parameters("@RowCount").Direction = ParameterDirection.Output
 
-            reader = cmd.ExecuteReader
-            Dim rowCount = CInt(cmd.Parameters("@RowCount").Value)
-            'Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
-            If rowCount > 0 Then
-                isCustomerValid = True
-            Else
-                isCustomerValid = False
+                reader = cmd.ExecuteReader
+                Dim rowCount = CInt(cmd.Parameters("@RowCount").Value)
+                'Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
+                If rowCount > 0 Then
+                    isCustomerValid = True
+                Else
+                    isCustomerValid = False
+                    If reader.IsClosed <> True Then
+                        reader.Close()
+                    End If
+                    'increments updateCount
+                    UpdateFailureCount(username, "passwordAnswer")
+                End If
+
+                MessageHandler = CStr(cmd.Parameters("@Message").Value)
                 If reader.IsClosed <> True Then
                     reader.Close()
                 End If
-                'increments updateCount
-                UpdateFailureCount(username, "passwordAnswer")
-            End If
 
-            MessageHandler = CStr(cmd.Parameters("@Message").Value)
-            If reader.IsClosed <> True Then
-                reader.Close()
-            End If
-
-            'Catch ex As Exception
-            'Server.Transfer("~/ErrorPages/ErrorPage.aspx")
-            'MessageHandler = "Oops an error occured!!"
-            'Debug.WriteLine(ex.StackTrace)
-            'End Try
+            Catch ex As Exception
+                'Server.Transfer("~/ErrorPages/ErrorPage.aspx")
+                'MessageHandler = "Oops an error occured!!"
+                Debug.WriteLine(ex.StackTrace)
+            End Try
             Return isCustomerValid
         End Function
 
@@ -100,61 +105,58 @@ Namespace DataAccess
             Return balance
         End Function
 
+        ''' <summary>
+        ''' Transaction is created and upated to database
+        ''' </summary>
+        ''' <param name="transaction"></param>
+        ''' <param name="balance"></param>
+        ''' <returns></returns>
         Friend Function Create_Transaxn(transaction As Transaction, balance As Double) As Boolean
             Dim reader As SqlDataReader = Nothing
             Dim isSuccess As Boolean = False
-            'Try
-            'current time
-            Dim createDate As DateTime = DateTime.Now
-            Dim cmd As New SqlCommand("uspAccountTransaction", SqlConnection) With {
-                .CommandType = CommandType.StoredProcedure
-            }
-            cmd.Parameters.AddWithValue("@Username", transaction.Username)
-            cmd.Parameters.AddWithValue("@AccountId", transaction.AccountId)
-            cmd.Parameters.AddWithValue("@TransactionId", transaction.TransactionId)
-            cmd.Parameters.AddWithValue("@Amount", transaction.Amount)
-            cmd.Parameters.AddWithValue("@TransactionType", transaction.TransactionType)
-            cmd.Parameters.AddWithValue("@TransactionDesc", transaction.TransactionDesc)
-            cmd.Parameters.AddWithValue("@TransactionDate", createDate)
-            cmd.Parameters.AddWithValue("@Balance", balance)
-            cmd.Parameters.Add("@ReturnValue", SqlDbType.Int, 10)
-            cmd.Parameters("@ReturnValue").Direction = ParameterDirection.Output
-            reader = cmd.ExecuteReader
-            Dim returnValue As Integer = CInt(cmd.Parameters("@ReturnValue").Value)
-            Select Case returnValue
-                Case 0
-                    MessageHandler = "Invalid transaction type"
-                Case 1
-                    MessageHandler = "Account Number doesn't Exist"
-                Case 2
-                    MessageHandler = "Amount is negative"
-                Case 3
-                    MessageHandler = "Insufficient Funds"
-                Case 4
-                    MessageHandler = "Updation Successful"
-                    isSuccess = True
-                Case 5
-                    MessageHandler = "Transaction Id already there! Try again!"
-                Case Else
-                    MessageHandler = "Try again!"
-            End Select
-            If reader.IsClosed <> True Then
-                reader.Close()
-            End If
-            'If returnValue > 0 Then
-            'isSuccess = True
-            'setting the account list value
-            'Session("AccountList") = accountListObj
-            'End If
-            'closing connection
-            'SqlConnectionClass.CloseSqlConnection()
-            'MessageHandler = CStr(cmd.Parameters("@Message").Value)
-            'Catch e As Exception
-            'Debug.WriteLine(e.StackTrace)
-            'Throw New Exception("error occured")
-            'have to call error page here
-            'MessageHandler = "Oops an error occured!!"
-            'End Try
+            Try
+                'current time
+                Dim createDate As DateTime = DateTime.Now
+                Dim cmd As New SqlCommand("uspAccountTransaction", SqlConnection) With {
+                    .CommandType = CommandType.StoredProcedure
+                }
+                cmd.Parameters.AddWithValue("@Username", transaction.Username)
+                cmd.Parameters.AddWithValue("@AccountId", transaction.AccountId)
+                cmd.Parameters.AddWithValue("@TransactionId", transaction.TransactionId)
+                cmd.Parameters.AddWithValue("@Amount", transaction.Amount)
+                cmd.Parameters.AddWithValue("@TransactionType", transaction.TransactionType)
+                cmd.Parameters.AddWithValue("@TransactionDesc", transaction.TransactionDesc)
+                cmd.Parameters.AddWithValue("@TransactionDate", createDate)
+                cmd.Parameters.AddWithValue("@Balance", balance)
+                cmd.Parameters.Add("@ReturnValue", SqlDbType.Int, 10)
+                cmd.Parameters("@ReturnValue").Direction = ParameterDirection.Output
+                reader = cmd.ExecuteReader
+                Dim returnValue As Integer = CInt(cmd.Parameters("@ReturnValue").Value)
+
+                'message depeding on return type
+                Select Case returnValue
+                    Case 0
+                        MessageHandler = "Invalid transaction type"
+                    Case 1
+                        MessageHandler = "Account Number doesn't Exist"
+                    Case 2
+                        MessageHandler = "Amount is negative"
+                    Case 3
+                        MessageHandler = "Insufficient Funds"
+                    Case 4
+                        MessageHandler = "Updation Successful"
+                        isSuccess = True
+                    Case 5
+                        MessageHandler = "Transaction Id already there! Try again!"
+                    Case Else
+                        MessageHandler = "Try again!"
+                End Select
+                If reader.IsClosed <> True Then
+                    reader.Close()
+                End If
+            Catch e As Exception
+                Debug.WriteLine(e.StackTrace)
+            End Try
             Return isSuccess
         End Function
 
@@ -165,36 +167,29 @@ Namespace DataAccess
         Friend Function Create_Account(accountObj As Account) As Boolean
 
             Dim isSuccess As Boolean = False
-            'Try
-            'current time
-            Dim createDate As DateTime = DateTime.Now
-            Dim cmd As New SqlCommand("uspAccountDetail", SqlConnection) With {
-                .CommandType = CommandType.StoredProcedure
-            }
-            cmd.Parameters.AddWithValue("@Username", accountObj.Username)
-            cmd.Parameters.AddWithValue("@AccountId", accountObj.AccountId)
-            cmd.Parameters.AddWithValue("@AccountDesc", accountObj.AccountDesc)
-            cmd.Parameters.AddWithValue("@Balance", accountObj.Balance)
-            cmd.Parameters.AddWithValue("@AccountStatus", 1) 'account is active
-            cmd.Parameters.AddWithValue("@CreateDate", createDate)
-            cmd.Parameters.Add("@Message", SqlDbType.VarChar, 100)
-            cmd.Parameters("@Message").Direction = ParameterDirection.Output
-            Dim recAdded As Integer = cmd.ExecuteNonQuery()
+            Try
+                'current time
+                Dim createDate As DateTime = DateTime.Now
+                Dim cmd As New SqlCommand("uspAccountDetail", SqlConnection) With {
+                    .CommandType = CommandType.StoredProcedure
+                }
+                cmd.Parameters.AddWithValue("@Username", accountObj.Username)
+                cmd.Parameters.AddWithValue("@AccountId", accountObj.AccountId)
+                cmd.Parameters.AddWithValue("@AccountDesc", accountObj.AccountDesc)
+                cmd.Parameters.AddWithValue("@Balance", accountObj.Balance)
+                cmd.Parameters.AddWithValue("@AccountStatus", 1) 'account is active
+                cmd.Parameters.AddWithValue("@CreateDate", createDate)
+                cmd.Parameters.Add("@Message", SqlDbType.VarChar, 100)
+                cmd.Parameters("@Message").Direction = ParameterDirection.Output
+                Dim recAdded As Integer = cmd.ExecuteNonQuery()
 
-            If recAdded > 0 Then
-                isSuccess = True
-                'setting the account list value
-                'Session("AccountList") = accountListObj
-            End If
-            'closing connection
-            'SqlConnectionClass.CloseSqlConnection()
-            MessageHandler = CStr(cmd.Parameters("@Message").Value)
-            'Catch e As Exception
-            'Debug.WriteLine(e.StackTrace)
-            'Throw New Exception("error occured")
-            'have to call error page here
-            'MessageHandler = "Oops an error occured!!"
-            'End Try
+                If recAdded > 0 Then
+                    isSuccess = True
+                End If
+                MessageHandler = CStr(cmd.Parameters("@Message").Value)
+            Catch e As Exception
+                Debug.WriteLine(e.StackTrace)
+            End Try
             Return isSuccess
         End Function
 
@@ -203,9 +198,9 @@ Namespace DataAccess
         ''' </summary>
         ''' <param name="customer"></param>
         Public Sub Create_User(customer As Customer)
-            'Try
-            'current time
-            Dim createDate As DateTime = DateTime.Now
+            Try
+                'current time
+                Dim createDate As DateTime = DateTime.Now
                 Dim cmd As New SqlCommand("spcustomerdetail", SqlConnection) With {
                 .CommandType = CommandType.StoredProcedure
             }
@@ -228,12 +223,9 @@ Namespace DataAccess
                 'closing connection
                 'SqlConnectionClass.CloseSqlConnection()
                 MessageHandler = CStr(cmd.Parameters("@ERROR").Value)
-                'Catch e As Exception
-            ' Debug.WriteLine(e.StackTrace)
-            'Throw New Exception("error occured")
-            'have to call error page here
-            ' MessageHandler = "Oops an error occured!!"
-            'End Try
+            Catch e1 As Exception
+                Debug.WriteLine(e1.StackTrace)
+            End Try
 
         End Sub
 
@@ -255,15 +247,8 @@ Namespace DataAccess
                 cmd.Parameters("@ERROR").Direction = ParameterDirection.Output
 
                 cmd.Parameters.Add("@ROWCOUNT", SqlDbType.Int, 5)
-                cmd.Parameters("@ROWCOUNT").Direction = ParameterDirection.Output
-                'Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
-                'If rowsAffected > 0 Then
-                'isCustomerValid = True
-                'Else
-                'Calculates failure count
-                'UpdateFailureCount(username, "password")
-                'End If
-                reader = cmd.ExecuteReader
+            cmd.Parameters("@ROWCOUNT").Direction = ParameterDirection.Output
+            reader = cmd.ExecuteReader
                 Dim rowCount = CInt(cmd.Parameters("@ROWCOUNT").Value)
                 'Dim rowsAffected As Integer = cmd.ExecuteNonQuery()
                 If rowCount > 0 Then
@@ -312,11 +297,8 @@ Namespace DataAccess
             readerNew = cmd.ExecuteReader
             While readerNew.Read()
                 If failureType = "password" Then
-                    'failureCount = reader.GetInt32("FailedPasswordAttemptCount")
                     failureCount = CInt(readerNew("FailedPasswordAttemptCount"))
                     windowStart = CDate(readerNew("FailedPasswordAttemptWindowStart"))
-                    'failureCount = failPwdCount
-                    ' windowStart = CDate(cmd.Parameters("FailedPasswordAttemptWindowStart").Value)
                 End If
 
                 If failureType = "passwordAnswer" Then
