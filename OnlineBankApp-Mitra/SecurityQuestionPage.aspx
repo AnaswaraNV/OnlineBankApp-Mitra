@@ -31,7 +31,9 @@
             <label>Answer</label>
             <asp:TextBox ID="InputAnswer" runat="server" type="password" CssClass="form-control" placeholder="Password" Width="235px"></asp:TextBox>
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1"
-                ControlToValidate="InputAnswer" runat="server" ErrorMessage="Enter an answer"></asp:RequiredFieldValidator>
+                ControlToValidate="InputAnswer" runat="server" 
+                ForeColor="Red"
+                ErrorMessage="Enter an answer"></asp:RequiredFieldValidator>
             <div id="dvMessage" runat="server" visible="false" class="alert alert-danger">
                 <strong>
                     <asp:Label ID="lblMessage" runat="server" />

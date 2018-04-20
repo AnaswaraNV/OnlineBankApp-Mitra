@@ -2,18 +2,14 @@
 
 Public Class SecurityQuestionPage
     Inherits System.Web.UI.Page
-    Property Username
+    Dim _username As String
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        'If Not IsPostBack Then
-        Dim loginCheck As Boolean = (System.Web.HttpContext.Current.User IsNot Nothing AndAlso
-                                     System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
-
-        Debug.WriteLine("Yes , user authenticated")
-
         Dim login = DirectCast(Session("login"), Model.Login)
         If login IsNot Nothing Then
-            Username = login.Username
+            _username = login.Username
+        Else
+            Response.Redirect("Default.aspx")
         End If
     End Sub
 
@@ -27,7 +23,7 @@ Public Class SecurityQuestionPage
         Dim dbObj As New DbHandler()
 
         'checking if the credentials are valid 
-        Dim isCustomerValid = dbObj.Validate_SecurityQuestion(Username, InputQuestion.Text, InputAnswer.Text)
+        Dim isCustomerValid = dbObj.Validate_SecurityQuestion(_username, InputQuestion.Text, InputAnswer.Text)
         'message handling 
         dvMessage.Visible = True
         lblMessage.Text = DbHandler.MessageHandler

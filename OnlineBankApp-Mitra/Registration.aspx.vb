@@ -11,16 +11,18 @@ Public Class Registration
     Protected Sub CustomValidator1_ServerValidate(ByVal source As Object, ByVal args As System.Web.UI.WebControls.ServerValidateEventArgs) Handles CustomValidator1.ServerValidate
         args.IsValid = True ' set default
 
+        'make sure that check box is checked
         If Not chkBox.Checked Then
             args.IsValid = False
         End If
     End Sub
 
+    ''' <summary>
+    ''' user registration
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Protected Sub RegisterButton_Click(sender As Object, e As EventArgs) Handles RegisterButton.Click
-        'if page is valid - this is to make sure for the users
-        ' with javascript enabled 
-        'If Page.IsValid Then
-        'Try
         If chkBox.Checked Then
             'create dataaccess obj
             Dim dbHandlerObj As New DbHandler()
@@ -38,17 +40,13 @@ Public Class Registration
                     }
 
             dbHandlerObj.Create_User(customer)
+            'getting the message
             dvMessage.Visible = True
             lblMessage.Text = DbHandler.MessageHandler
-            'Catch ex As Exception
-            'If (Not Response.IsRequestBeingRedirected) Then
-            'Server.Transfer("~/ErrorPages/ErrorPage.aspx")
-            'End If
-            'End Try
-            'End If
+
         Else
             dvMessage.Visible = True
-            lblMessage.Text = "Pl"
+            lblMessage.Text = "Please select all fields"
         End If
 
 
