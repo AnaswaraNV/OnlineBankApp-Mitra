@@ -243,6 +243,7 @@
     <Content Include="SQLScripts\spSecurity.sql" />
     <Content Include="SQLScripts\spSecurityold.sql" />
     <Content Include="SQLScripts\testingLogin.sql" />
+    <Content Include="TransactionDetails.aspx" />
     <Content Include="TransactionWindow.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -367,6 +368,13 @@
     <Compile Include="Site.Master.vb">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransactionDetails.aspx.designer.vb">
+      <DependentUpon>TransactionDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionDetails.aspx.vb">
+      <DependentUpon>TransactionDetails.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="TransactionWindow.aspx.designer.vb">
       <DependentUpon>TransactionWindow.aspx</DependentUpon>

@@ -56,6 +56,13 @@ Public Class TransactionWindow
             'setting message
             dvMessage.Visible = True
             lblMessage.Text = DbHandler.MessageHandler
+
+            If isSuccess Then
+                'setting 
+                Cache("CacheAccntKey") = _accountId
+                Cache("CacheTransactionKey") = transaction.TransactionId
+                Me.details.Visible = True
+            End If
         End If
     End Sub
 

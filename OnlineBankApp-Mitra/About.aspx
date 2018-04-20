@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="About Us" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.vb" Inherits="OnlineBankApp_Mitra.About" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
+    <br />
+    <h2><%: Title %></h2>
    
     <div class="responsive">
   <div class="gallery">

@@ -8,6 +8,9 @@
         Property TransactionDesc As String
         Property TransactionDate As Date
 
+        Public Sub New()
+
+        End Sub
         Public Sub New(username As String, accountId As String,
                        transactionId As String, amount As Double, transactionType As Char,
                        transactionDesc As String, transactionDate As Date)

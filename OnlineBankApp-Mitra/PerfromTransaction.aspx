@@ -14,7 +14,8 @@
                 class="image-container" runat="server" />  
         </asp:HyperLink>    
     </div>
-     <h1>Perform Transaction on your account</h1>
+    <br />
+     <h2>Perform Transaction on your account</h2>
     <fieldset>
         <div class="form-group">
             <label for="Username">Username</label>

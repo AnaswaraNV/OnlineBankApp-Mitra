@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Contact Us" Language="VB" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Contact.aspx.vb" Inherits="OnlineBankApp_Mitra.Contact" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
+    <br />
     <h2><%: Title %></h2>
     <p>Feel free to write us on the below address</p>
 
